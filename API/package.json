@@ -1,0 +1,18 @@
+{
+  "name": "API",
+  "version": "1.0.0",
+  "description": "tic tac weep node API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "author": "Egor Philippov",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.4.3",
+    "debug": "^2.1.3",
+    "express": "^4.12.3",
+    "morgan": "^1.5.2",
+    "request": "^2.55.0"
+  }
+}
