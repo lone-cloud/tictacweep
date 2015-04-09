@@ -2,6 +2,7 @@ var express      = require('express'),
     logger       = require('morgan'),
     compression  = require('compression'),
     path         = require('path'),
+    bodyParser   = require('body-parser'),
     player       = require('./routes/player');
 
 var app = express(),
@@ -11,6 +12,7 @@ var app = express(),
 
 app.use(logger('dev'));
 app.use(compression());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/player', player);
 

@@ -1,17 +1,37 @@
-<table id="game-table">
-    <tr id="row1">
-        <td class="square empty"></td>
-        <td class="square empty v"></td>
-        <td class="square empty"></td>
-    </tr>
-    <tr id="row2">
-        <td class="square empty h"></td>
-        <td class="square empty v h"></td>
-        <td class="square empty h"></td>
-    </tr>
-    <tr id="row3">
-        <td class="square empty"></td>
-        <td class="square empty v"></td>
-        <td class="square empty"></td>
-    </tr>
-</table>
+<div id="info-panel">
+    <p class="centered-text">
+  {{#if isGameStatePending}}
+    Shall we play a game?
+  {{else}}
+    {{#if isGameStatePlayersTurn}}
+      Your turn.
+    {{else}}
+      CPU's turn.
+    {{/if}}
+  {{/if}}
+    </p>
+</div>
+
+<div class="container">
+  {{#if isGameStatePending}}
+      <div id="new-game" {{action 'newGame'}}>New Game</div>
+  {{/if}}
+
+  <table id="game-table">
+      <tr id="row1">
+          <td class="square empty"></td>
+          <td class="square empty v"></td>
+          <td class="square empty"></td>
+      </tr>
+      <tr id="row2">
+          <td class="square empty h"></td>
+          <td class="square empty v h"></td>
+          <td class="square empty h"></td>
+      </tr>
+      <tr id="row3">
+          <td class="square empty"></td>
+          <td class="square empty v"></td>
+          <td class="square empty"></td>
+      </tr>
+  </table>
+</div>

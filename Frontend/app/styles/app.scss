@@ -1,13 +1,17 @@
+$good-border-radius: 5px;
+
 #centered-form {
-  max-width: 900px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
+  border-radius: $good-border-radius;
 }
 
 .square{
   width:100px;
   height:100px;
+  text-align: center;
 }
 
 .v{
@@ -21,10 +25,56 @@
 }
 
 #game-table {
-  margin: 20px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#info-panel{
+  margin: 3px auto 3px auto;
+  background-color: #e6ffff;
+  border: 1px solid black;
+  width: 350px;
+  border-radius: $good-border-radius;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+#new-game{
+  background-color: #a3ffa4;
+  border-radius: $good-border-radius;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  font-size: larger;
+  font-family: sans-serif;
+  padding: 10px;
+  position: absolute;
+  left: 200px;
+  top: 140px;
+  cursor: pointer;
+}
+
+.container{
+  position: relative;
+  left: 0;
+  top: 0;
 }
 
 .empty:hover {
+  background-color: #dafff3;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+
+.o-preview{
+  font-size: 500%;
+  color: lightgray;
+}
+
+.o-entered{
+  font-size: 500%;
+  color: green;
 }
