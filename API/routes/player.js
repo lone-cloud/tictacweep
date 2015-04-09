@@ -3,7 +3,7 @@ var router = require('express').Router(),
 
 router
     .post('/move', function(req, res){
-        res.json({"gameBoard": req.body.gameBoard});
+        res.json({'action': 'move', index: [0, 1]});
     });
 
 module.exports = router;

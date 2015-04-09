@@ -74,7 +74,11 @@ $good-border-radius: 5px;
   color: lightgray;
 }
 
-.o-entered{
+span.red { 
+  color: red
+}
+
+.mark-entered{
   font-size: 500%;
   color: green;
 }

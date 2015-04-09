@@ -9,10 +9,15 @@ export default Ember.Controller.extend({
   // -1 = empty, 0 = player's mark, 1 = computer's mark
   gameBoard: [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]],
 
+  lastBoardElementChangedIndex: null,
+
   onGameStateChange: function(){
     if(this.get('isGameStateCPUTurn')){
+      var self = this;
       Ember.$.post('/api/player/move', {'gameBoard': JSON.stringify(this.get('gameBoard'))}, function(data){
-          alert('Got:' + data);
+          if(data.action === 'move'){
+            self.send('cpuMove', data.index[0], data.index[1]);
+          }
         }
       );
     }
@@ -33,14 +38,27 @@ export default Ember.Controller.extend({
   actions: {
     newGame: function(){
       this.set('gameState', 0);
+      this.set('gameBoard', [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]]);
     },
 
     playerMove: function(x, y){
-      var gameBoard = this.get('gameBoard');
+      var gameBoard = this.get('gameBoard').slice();
       gameBoard[x][y] = 0;
-      this.get('gameBoard', gameBoard);
+      this.setProperties({
+        lastBoardElementChangedIndex: [x, y],
+        gameBoard: gameBoard,
+        gameState: 1
+      });
+    },
 
-      this.set('gameState', 1);
+    cpuMove: function(x, y){
+      var gameBoard = this.get('gameBoard').slice();
+      gameBoard[x][y] = 1;
+      this.setProperties({
+        lastBoardElementChangedIndex: [x, y],
+        'gameBoard': gameBoard,
+        'gameState': 0
+      });
     }
   }
 });
