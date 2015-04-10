@@ -14,9 +14,13 @@ export default Ember.Controller.extend({
   onGameStateChange: function(){
     if(this.get('isGameStateCPUTurn')){
       var self = this;
-      Ember.$.post('/api/player/move', {'gameBoard': JSON.stringify(this.get('gameBoard'))}, function(data){
+      Ember.$.post('/api/player/turn', {'gameBoard': JSON.stringify(this.get('gameBoard'))}, function(data){
           if(data.action === 'move'){
             self.send('cpuMove', data.index[0], data.index[1]);
+          } else if(data.action === 'declareVictory'){
+            alert('CPU DECLARED VICTORY');
+          } else if(data.action === 'declareTie'){
+            alert('CPU DECLARED TIE')
           }
         }
       );

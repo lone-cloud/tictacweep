@@ -1,11 +1,9 @@
-$good-border-radius: 5px;
-
 #centered-form {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
-  border-radius: $good-border-radius;
+  border-radius: 5px;
 }
 
 .square{
@@ -35,7 +33,7 @@ $good-border-radius: 5px;
   background-color: #e6ffff;
   border: 1px solid black;
   width: 350px;
-  border-radius: $good-border-radius;
+  border-radius: 5px;
 }
 
 .centered-text {
@@ -44,7 +42,7 @@ $good-border-radius: 5px;
 
 #new-game{
   background-color: #a3ffa4;
-  border-radius: $good-border-radius;
+  border-radius: 5px;
   font-weight: bold;
   width: 200px;
   text-align: center;
@@ -74,7 +72,7 @@ $good-border-radius: 5px;
   color: lightgray;
 }
 
-span.red { 
+span.red {
   color: red
 }
 

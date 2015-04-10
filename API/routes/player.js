@@ -5,16 +5,23 @@ var router       = require('express').Router(),
 var moveCache = {};
 
 router
-    .post('/move', function(req, res){
+    .post('/turn', function(req, res){
     	var move;
 
     	if( req.body.gameBoard in moveCache ){
-    		move = moveCache[req.body.gameBoard]};
+    		move = moveCache[req.body.gameBoard];
     	} else {
-    		move = playerWorker.getMove(req.body.gameBoard);
+    		move = playerWorker.getMove(JSON.parse(req.body.gameBoard));
+            moveCache[req.body.gameBoard] = move;
        	}
 
-    	res.json({'action': 'move', 'index': move});
+        if(move === 'victory'){
+            res.json({'action': 'declareVictory'});
+        } else if(move === 'tie') {
+            res.json({'action': 'declareTie'});
+        } else {
+            res.json({'action': 'move', 'index': move});
+        }
     });
 
 module.exports = router;
