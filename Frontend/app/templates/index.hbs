@@ -14,8 +14,6 @@
   {{else}}
     {{#if isGameStatePlayersTurn}}
       Your turn.
-    {{else}}
-      CPU's turn.
     {{/if}}
   {{/if}}
     </p>
@@ -23,24 +21,24 @@
 
 <div class="container">
   {{#if isGameStatePending}}
-      <div id="new-game" {{action 'newGame'}}>New Game</div>
+      <span id="new-game" {{action 'newGame'}}>New Game</span>
   {{/if}}
 
   <table id="game-table">
       <tr id="row1">
-          <td class="square empty"></td>
-          <td class="square empty v"></td>
-          <td class="square empty"></td>
+          <td class="square"></td>
+          <td class="square v"></td>
+          <td class="square"></td>
       </tr>
       <tr id="row2">
-          <td class="square empty h"></td>
-          <td class="square empty v h"></td>
-          <td class="square empty h"></td>
+          <td class="square h"></td>
+          <td class="square v h"></td>
+          <td class="square h"></td>
       </tr>
       <tr id="row3">
-          <td class="square empty"></td>
-          <td class="square empty v"></td>
-          <td class="square empty"></td>
+          <td class="square"></td>
+          <td class="square v"></td>
+          <td class="square"></td>
       </tr>
   </table>
 </div>

@@ -5,7 +5,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp();
 
 app.import('bower_components/jquery-ui/ui/effect.js');
-app.import('bower_components/jquery-ui/ui/effect-pulsate.js');
+app.import('bower_components/jquery-ui/ui/effect-highlight.js');
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
