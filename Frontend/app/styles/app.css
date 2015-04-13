@@ -23,9 +23,7 @@
 }
 
 #game-table {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
+  margin: 30px auto;
 }
 
 #info-panel{
@@ -34,10 +32,15 @@
   border: 1px solid black;
   width: 350px;
   border-radius: 5px;
+  height: 75px;
 }
 
 .centered-text {
   text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 #new-game{
@@ -64,7 +67,6 @@
 .empty:hover {
   background-color: #dafff3;
   cursor: pointer;
-  transition: all .1s ease-in-out;
 }
 
 .o-preview{

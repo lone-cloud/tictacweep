@@ -15,12 +15,10 @@ router
             moveCache[req.body.gameBoard] = move;
        	}
 
-        if(move === 'victory'){
-            res.json({'action': 'declareVictory'});
-        } else if(move === 'tie') {
-            res.json({'action': 'declareTie'});
+        if( move[1] ){
+            res.json({'action': move[0], 'index': move[1]});
         } else {
-            res.json({'action': 'move', 'index': move});
+            res.json({'action': move[0]});
         }
     });
 

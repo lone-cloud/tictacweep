@@ -1,7 +1,16 @@
 <div id="info-panel">
     <p class="centered-text">
   {{#if isGameStatePending}}
-    Shall we play a game?
+    {{#if endType}}
+      {{#if cpuWonGame}}
+        CPU wins!<br>
+      {{else}}
+        It's a tie!<br>
+      {{/if}}
+      Aww...you failed to win <strong>{{gamesWithoutLoss}}</strong> games in a row. Try again?
+    {{else}}
+        Shall we play a game?
+    {{/if}}
   {{else}}
     {{#if isGameStatePlayersTurn}}
       Your turn.

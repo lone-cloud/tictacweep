@@ -2,22 +2,22 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   didInsertElement: function() {
-    var self = this;
+    var self = this, $ = Ember.$;
 
-    Ember.$('.empty')
+    $('#centered-text').change(function(){
+      alert('INFO PANEL CHANGED!');
+    });
+
+    $('.empty')
       .mouseenter(function(){
-        var $ = Ember.$;
-
         if(self.get('controller.isGameStatePlayersTurn') && !$(this).find('.mark-entered').length ){
           $(this).delay(100).append("<span class='o-preview'>X</span>");
         }
       })
       .mouseleave(function(){
-        Ember.$(this).find('.o-preview').delay(100).remove();
+        $(this).find('.o-preview').delay(100).remove();
       })
       .click(function(){
-        var $ = Ember.$;
-
         if(self.get('controller.isGameStatePlayersTurn') && $(this).find('.o-preview').length){
           var elem = $(this);
           self.get('controller').send('playerMove', elem.index(), elem.parent().index());
@@ -43,6 +43,8 @@ export default Ember.View.extend({
         elem.delay(100).append("<span class='mark-entered red'>O</span>");
         elem.find('.mark-entered.red').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
       }
+    } else { // lastBoardElementChangedIndex = null means we're starting a new game
+      $('.square').empty().addClass('empty');
     }
   }.observes('controller.gameBoard.[]')
 });
