@@ -37,6 +37,7 @@ export default Ember.Controller.extend({
     }
   }.observes('gameState'),
 
+  // dynamic properties to be used in the template
   cpuWonGame: function(){
     return this.get('endType') === 'victory';
   }.property('endType'),
@@ -53,6 +54,7 @@ export default Ember.Controller.extend({
     return this.get('gameState') === 1;
   }.property('gameState'),
 
+  // application state is to be changed via actions defined here
   actions: {
     newGame: function(){
       this.setProperties({

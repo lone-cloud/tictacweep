@@ -4,21 +4,17 @@ export default Ember.View.extend({
   didInsertElement: function() {
     var self = this, $ = Ember.$;
 
-    $('#centered-text').change(function(){
-      alert('INFO PANEL CHANGED!');
-    });
-
-    $(document.body).on('mouseenter', '.empty', function(){
+    // jquery event handlers
+    $(document.body)
+      .on('mouseenter', '.empty', function(){
       if(self.get('controller.isGameStatePlayersTurn') && !$(this).find('.mark-entered').length ){
         $(this).delay(100).append("<span class='o-preview'>X</span>");
       }
-    });
-
-    $(document.body).on('mouseleave', '.empty', function(){
+    })
+      .on('mouseleave', '.empty', function(){
         $(this).find('.o-preview').delay(100).remove();
-    });
-
-    $(document.body).on('click', '.empty', function(){
+    })
+      .on('click', '.empty', function(){
         if(self.get('controller.isGameStatePlayersTurn') && $(this).find('.o-preview').length){
           var elem = $(this);
           self.get('controller').send('playerMove', elem.index(), elem.parent().index());
@@ -49,6 +45,7 @@ export default Ember.View.extend({
     }
   }.observes('controller.gameBoard.[]'),
 
+  // use jquery-ui effects to highlight/flash the element for attention
   flashElement: function(elem){
     elem.delay(100).effect('highlight', {color: '#F991A4'});
   },
