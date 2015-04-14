@@ -4,7 +4,7 @@
   "description": "tic tac weep node API",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www.js"
   },
   "author": "Egor Philippov",
   "license": "ISC",
